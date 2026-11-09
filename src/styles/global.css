@@ -1,0 +1,109 @@
+@import './tokens.css';
+@import './animations.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: var(--xp-bg);
+    color: var(--xp-cream);
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--xp-cream);
+    letter-spacing: -0.01em;
+  }
+
+  .font-display {
+    font-family: 'Barlow Condensed', 'Oswald', sans-serif;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: #08090D; }
+::-webkit-scrollbar-thumb { background: #1e222d; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #F12B25; }
+
+/* ---- Button system ------------------------------------------ */
+
+.btn-red-primary {
+  position: relative;
+  background-color: #F12B25;
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 10px;
+  transition: all 0.22s ease-in-out;
+  box-shadow: 0 4px 18px rgba(241,43,37,0.4);
+  overflow: hidden;
+}
+.btn-red-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+  pointer-events: none;
+}
+.btn-red-primary:hover {
+  background-color: #d4211c;
+  box-shadow: 0 6px 28px rgba(241,43,37,0.6);
+  transform: translateY(-2px);
+}
+.btn-red-primary:active { transform: translateY(0); }
+
+.btn-outlined {
+  position: relative;
+  background: transparent;
+  color: #F4EBDD;
+  border: 1px solid rgba(244,235,221,0.3);
+  font-weight: 500;
+  border-radius: 10px;
+  transition: all 0.22s ease-in-out;
+  overflow: hidden;
+}
+.btn-outlined:hover {
+  border-color: rgba(244,235,221,0.8);
+  background-color: rgba(244,235,221,0.08);
+  transform: translateY(-2px);
+}
+
+.btn-outlined-blue {
+  position: relative;
+  background: transparent;
+  color: #F4EBDD;
+  border: 1px solid rgba(21,84,209,0.5);
+  font-weight: 500;
+  border-radius: 10px;
+  transition: all 0.22s ease-in-out;
+}
+.btn-outlined-blue:hover {
+  border-color: #1554D1;
+  background-color: rgba(21,84,209,0.14);
+  box-shadow: 0 0 20px rgba(21,84,209,0.35);
+  transform: translateY(-2px);
+}
+
+/* ---- Card system -------------------------------------------- */
+
+.interactive-card {
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+.interactive-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(244,235,221,0.3);
+  box-shadow: 0 16px 40px -12px rgba(0,0,0,0.9);
+}
+
+/* ---- Glass panels ------------------------------------------- */
+.glass-panel {
+  background: rgba(17,20,28,0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(244,235,221,0.1);
+}

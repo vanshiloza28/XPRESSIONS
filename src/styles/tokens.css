@@ -1,0 +1,16 @@
+:root {
+  --xp-bg: #08090D;
+  --xp-red: #F12B25;
+  --xp-blue: #1554D1;
+  --xp-cream: #F4EBDD;
+
+  --xp-panel: #11141C;
+  --xp-panel-alt: #171B25;
+  --xp-border: rgba(244, 235, 221, 0.16);
+  --xp-muted: rgba(244, 235, 221, 0.72);
+
+  --radius-card: 14px;
+  --radius-control: 8px;
+  --content-width: 1200px;
+}
+

@@ -1,0 +1,315 @@
+/* =================================================================
+   Xpressions 2027 — Animation System & Mood Indigo Replica Styling
+   Palette: #F12B25 red · #1554D1 blue · #00F5D4 cyan · #F4EBDD cream · #08090D dark
+   ================================================================= */
+
+/* ---- Core Keyframes -------------------------------------------*/
+
+@keyframes pulse-glow-red {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(70px);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.15);
+    filter: blur(55px);
+  }
+}
+
+@keyframes pulse-glow-blue {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(80px);
+  }
+  50% {
+    opacity: 0.65;
+    transform: translate(-50%, -50%) scale(1.18);
+    filter: blur(60px);
+  }
+}
+
+@keyframes beam-left-sway {
+  0%, 100% {
+    clip-path: polygon(44% 0%, 56% 0%, 92% 100%, 8% 100%);
+    opacity: 0.18;
+  }
+  50% {
+    clip-path: polygon(40% 0%, 60% 0%, 98% 100%, 2% 100%);
+    opacity: 0.32;
+  }
+}
+
+@keyframes beam-right-sway {
+  0%, 100% {
+    clip-path: polygon(44% 0%, 56% 0%, 93% 100%, 7% 100%);
+    opacity: 0.14;
+  }
+  50% {
+    clip-path: polygon(39% 0%, 61% 0%, 99% 100%, 1% 100%);
+    opacity: 0.28;
+  }
+}
+
+@keyframes shimmer-title {
+  0%   { background-position: -300% center; }
+  100% { background-position:  300% center; }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes btn-glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 14px rgba(241,43,37,0.5),
+      0 0 35px rgba(241,43,37,0.25);
+  }
+  50% {
+    box-shadow:
+      0 0 28px rgba(241,43,37,0.85),
+      0 0 65px rgba(241,43,37,0.45);
+  }
+}
+
+@keyframes ring-expand {
+  0%   { transform: scale(0.95); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ---- Utility Classes ------------------------------------------*/
+
+.anim-float-y     { animation: float-y 5s ease-in-out infinite; }
+.anim-glow-btn    { animation: btn-glow-pulse 2.2s ease-in-out infinite; }
+
+/* ---- Mood Indigo 3D Header Typography -------------------------*/
+
+.moodi-title-3d {
+  font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+  color: #FF5A52;
+  text-shadow: 
+    0 2px 0 #9E100D,
+    0 4px 0 #6B0B09,
+    0 6px 0 #420705,
+    0 0 30px rgba(241, 43, 37, 0.8);
+  letter-spacing: 0.08em;
+}
+
+.moodi-title-pink {
+  font-family: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+  color: #FF2E93;
+  text-shadow: 
+    0 2px 0 #9E0D55,
+    0 4px 0 #610834,
+    0 0 30px rgba(255, 46, 147, 0.7);
+  letter-spacing: 0.08em;
+}
+
+/* ---- Cyan Pixel Subtitles & Links -----------------------------*/
+
+.moodi-cyan-pixel {
+  font-family: 'VT323', 'Press Start 2P', monospace;
+  color: #00F5D4;
+  text-shadow: 0 0 10px rgba(0, 245, 212, 0.6);
+  letter-spacing: 0.06em;
+}
+
+/* ---- Diamond Halftone Background Pattern ----------------------*/
+
+.moodi-diamond-halftone {
+  position: absolute;
+  inset-x: 0;
+  bottom: 0;
+  height: 380px;
+  background-image: 
+    linear-gradient(45deg, rgba(241, 43, 37, 0.16) 25%, transparent 25%), 
+    linear-gradient(-45deg, rgba(241, 43, 37, 0.16) 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, rgba(241, 43, 37, 0.16) 75%), 
+    linear-gradient(-45deg, transparent 75%, rgba(241, 43, 37, 0.16) 75%);
+  background-size: 24px 24px;
+  background-position: 0 0, 0 12px, 12px -12px, -12px 0px;
+  mask-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Geometric corner star shard (Mood Indigo signature graphic) */
+.moodi-star-shard {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, #00F5D4 0%, #FF2E93 50%, transparent 70%);
+  clip-path: polygon(0% 100%, 30% 60%, 10% 40%, 65% 35%, 100% 0%, 75% 70%, 100% 100%);
+  opacity: 0.45;
+  filter: drop-shadow(0 0 20px rgba(0, 245, 212, 0.5));
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ---- Light Beam Cones -----------------------------------------*/
+
+.light-cone {
+  position: absolute;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  top: 0;
+  width: 50%;
+  height: 100%;
+}
+
+.light-cone-red {
+  left: 10%;
+  background: linear-gradient(
+    to bottom,
+    rgba(241,43,37,0.55)  0%,
+    rgba(241,43,37,0.12)  50%,
+    transparent           100%
+  );
+  clip-path: polygon(44%,0%, 56%,0%, 92%,100%, 8%,100%);
+  animation: beam-left-sway 6s ease-in-out infinite;
+}
+
+.light-cone-blue {
+  right: 10%;
+  left: auto;
+  background: linear-gradient(
+    to bottom,
+    rgba(21,84,209,0.5)   0%,
+    rgba(21,84,209,0.1)   50%,
+    transparent           100%
+  );
+  clip-path: polygon(44%,0%, 56%,0%, 93%,100%, 7%,100%);
+  animation: beam-right-sway 7s ease-in-out 1.5s infinite;
+}
+
+/* ---- Ambient Glow Blobs ---------------------------------------*/
+
+.ambient-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.ambient-glow-red {
+  background: rgba(241,43,37,0.28);
+  animation: pulse-glow-red 5s ease-in-out infinite;
+}
+
+.ambient-glow-blue {
+  background: rgba(21,84,209,0.22);
+  animation: pulse-glow-blue 6s ease-in-out 2s infinite;
+}
+
+/* ---- Card Hover Shine -----------------------------------------*/
+
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shine::after {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -120%;
+  width: 55%;
+  height: 220%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255,255,255,0.07) 50%,
+    transparent 60%
+  );
+  transform: skewX(-15deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.card-shine:hover::after {
+  opacity: 1;
+  animation: card-shine-move 0.55s ease-in-out forwards;
+}
+
+@keyframes card-shine-move {
+  0%   { left: -120%; }
+  100% { left:  220%; }
+}
+
+/* Scroll progress bar */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2.5px;
+  background: linear-gradient(to right, #F12B25, #00F5D4, #1554D1);
+  transform-origin: left;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(241,43,37,0.9);
+  pointer-events: none;
+}
+
+/* ---- Retro 3D Pixel Typography (matching XPRESSIONS neon festival reference) ---- */
+.pixel-title-3d {
+  font-family: 'Press Start 2P', 'VT323', 'Bebas Neue', monospace, sans-serif;
+  color: #F12B25;
+  text-shadow: 
+    2px 2px 0 #B91C1C,
+    4px 4px 0 #7F1D1D,
+    6px 6px 0 #450A0A,
+    8px 8px 0 #000000,
+    0 0 25px rgba(241, 43, 37, 0.8);
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.pixel-title-cyan {
+  font-family: 'Press Start 2P', 'VT323', 'Bebas Neue', monospace, sans-serif;
+  color: #00F5D4;
+  text-shadow: 
+    2px 2px 0 #0F766E,
+    4px 4px 0 #115E59,
+    6px 6px 0 #042F2E,
+    8px 8px 0 #000000,
+    0 0 25px rgba(0, 245, 212, 0.8);
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.pixel-title-yellow {
+  font-family: 'Press Start 2P', 'VT323', 'Bebas Neue', monospace, sans-serif;
+  color: #FACC15;
+  text-shadow: 
+    2px 2px 0 #B45309,
+    4px 4px 0 #78350F,
+    6px 6px 0 #451A03,
+    8px 8px 0 #000000,
+    0 0 25px rgba(250, 204, 21, 0.8);
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.pixel-card-grid {
+  background-image: 
+    radial-gradient(rgba(241, 43, 37, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, #11141c 0%, #08090d 100%);
+  background-size: 16px 16px, 100% 100%;
+}
