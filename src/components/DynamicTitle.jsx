@@ -26,6 +26,15 @@ export default function DynamicTitle() {
       }
     };
 
+    // Explicitly send pageview to Google Analytics (GA4) on SPA route change
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'page_view', {
+        page_title: currentTitle,
+        page_location: window.location.href,
+        page_path: location.pathname + location.search + (location.hash || '')
+      });
+    }
+
     document.addEventListener('visibilitychange', handleVisibilityChange);
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
