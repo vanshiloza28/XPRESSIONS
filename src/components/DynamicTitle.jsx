@@ -6,7 +6,9 @@ const ROUTE_TITLES = {
   '/the-fest': '⚡ THE FEST · Xpressions 2027',
   '/events': '🔥 EVENTS & CONCERTS · Xpressions 2027',
   '/schedule': '📅 FESTIVAL SCHEDULE · Xpressions 2027',
+  '/highlights': '🏆 FESTIVAL HIGHLIGHTS · Xpressions 2027',
   '/sponsors': '💎 SPONSORS & PARTNERS · Xpressions 2027',
+  '/faqs-contact': '❓ FAQs & CONTACT · Xpressions 2027',
   '/register': '🎟️ REGISTER NOW · Xpressions 2027'
 };
 
@@ -26,12 +28,15 @@ export default function DynamicTitle() {
       }
     };
 
-    // Explicitly send pageview to Google Analytics (GA4) on SPA route change
+    // Explicitly send clean virtual path to GA4 so subpages show up separately (not collapsed into '/')
     if (typeof window.gtag === 'function') {
+      const cleanPath = location.pathname;
+      const cleanUrl = `${window.location.origin}${cleanPath}`;
+
       window.gtag('event', 'page_view', {
         page_title: currentTitle,
-        page_location: window.location.href,
-        page_path: location.pathname + location.search + (location.hash || '')
+        page_location: cleanUrl,
+        page_path: cleanPath
       });
     }
 
